@@ -5,11 +5,14 @@
 
 
 var button = document.getElementsByClassName("btn btn-primary btn-lg")
-var time = document.querySelector(".time");
 var mainEl = document.getElementById("main");
+var questionNumber = document.getElementsByClassName("display-4")
+var questionPrompt = document.getElementsByClassName ("lead")
 
+var countdown = document.getElementById("timer")
 
-// var secondsLeft = 100;
+var countdown = 30;
+
 
 // function setTime() {
 //   var timerInterval = setInterval(function() {
