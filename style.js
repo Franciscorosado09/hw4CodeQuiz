@@ -1,14 +1,17 @@
+//main document variables
 
-
-
-//main variables
-
-var highScoresEl= document.getElementById("highscores");
-var buttonEl = document.querySelector("#btn");
-var mainEl = document.getElementById("main");
+var highScoresEl = document.getElementById("highscores");
+var buttonStart = document.querySelector("#btnStart");
+var
 var questionEl = document.querySelector("#question");
 var answersEl = document.querySelector("#answers");
 var countdownEl = document.querySelector("#timer");
+
+
+
+//hide buttons for quesitons
+buttonOption.style.visibility ="hidden"
+
 
 
 //time variables
@@ -17,29 +20,26 @@ var countdown = 100;
 var countdownInterval;
 
 
-// Question varaibles
+// 
 
-var q1El = document.getElementById("q1").style.visibility = "hidden";
-var q2El = document.getElementById("q2").style.visibility = "hidden";
-var q3El = document.getElementById("q3").style.visibility = "hidden";
-var q4El = document.getElementById("q4").style.visibility = "hidden";
-var q5El = document.getElementById("q5").style.visibility = "hidden";
 
-var qbtnEl = document.getElementById("qbtn");
+
+
+
 
 
 
 function setTime() {
 
-    var countdown = 100;
+  var countdown = 100;
 
-  var countdownInterval = setInterval(function() {
+  var countdownInterval = setInterval(function () {
     countdown--;
     countdownEl.textContent = countdown;
 
-    if(countdown === 0) {
+    if (countdown === 0) {
       clearInterval(countdownInterval);
-      
+
     }
 
   }, 1000);
@@ -51,72 +51,74 @@ console.log(setTime);
 
 
 
-function startQuiz (){
-
-    var question1 = ("Question 1 BLahahahha");
-
-    var optionA= document.createElement("BUTTON");
-    optionA.innerHTML = "Answer";
-    document.body.appendChild(optionA);               
-
-    var optionB= document.createElement("BUTTON");
-    optionB.innerHTML = "Answer";
-    document.body.appendChild(optionB);
+var quizQuestions = 0;
+var chosenAnswer = "";
 
 
-    var optionC= document.createElement("BUTTON");
-    optionC.innerHTML = "Answer";
-    document.body.appendChild(optionC);
+function startQuiz() {
 
 
 
+  for (i = 0; i < 5; i++) {
 
-//  Create an IF ELSE statement if USER chooses correct answer 5 seconds added if choose another then minus 5 seconds
+    var option = document.createElement("button");
+    option.getElementById("btn").innerHTML = " ";
+    document.buttonEl.appendChild(option);
+
+    var option = document.createElement("button");
+    option.getElementById("btn").innerHTML = " ";
+    document.buttonEl.appendChild(optionA);
+
+
+    var option = document.createElement("button");
+    option.getElementById("btn").innerHTML = " ";
+    document.buttonEl.appendChild(optionA);
+
+  }
+  //  Create an IF ELSE statement if USER chooses correct answer 5 seconds added if choose another then minus 5 seconds
 
 };
 
 
-buttonEl.addEventListener ("click",function() {
-    setTime();
-    startQuiz();
+buttonStart.addEventListener("click", function () {
+  buttonStart.style.visibility = "hidden";
+  setTime();
+  startQuiz();
 
- alert ("hello")
+
 });
 // button.addeventlistener("click", startQuiz);
 
 
+// var quizQuestions = {
+
+//   var question = {
+//     question: "Whats your favorite color",
+//     option: ["red", "blue", "green", ];
+//     answer: "red",
 
 
+//   };
 
-var q1 = {
-    question: "Whats your favorite color",
-    a: "red",
-    b: "blue",
-    c: "green"
-};
+//   var q2 = {
+//     question: "Whats your favorite color",
+//     option: ["red", "blue", "green", ];
+//     answer: "red",
+//   };
 
-var q2 = {
-    question: "Whats your favorite color",
-    a: "red",
-    b: "blue",
-    c: "green"
-};
-
-var q3 = {
-    question: "Whats your favorite color",
-    a: "red",
-    b: "blue",
-    c: "green"
-};
-var q4 = {
-    question: "Whats your favorite color",
-    a: "red",
-    b: "blue",
-    c: "green"
-};
-var q5 = {
-    question: "Whats your favorite color",
-    a: "red",
-    b: "blue",
-    c: "green"
-};
+//   var q3 = {
+//     question: "Whats your favorite color",
+//     option: ["red", "blue", "green", ];
+//     answer: "red",
+//   };
+//   var q4 = {
+//     question: "Whats your favorite color",
+//     option: ["red", "blue", "green", ];
+//     answer: "red",
+//   };
+//   var q5 = {
+//     question: "Whats your favorite color",
+//     option: ["red", "blue", "green", ];
+//     answer: "red",
+//   };
+// }
