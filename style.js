@@ -30,34 +30,61 @@ questionEl.innerHTML = "This quiz will ask Coding questions as soon as you press
 //Questions to plug in//
 
 
-var quizQuestions = {
+var quizQuestions = [
 
- 
-  question: "1. Whats your favorite color",
-  options: ["red", "blue", "green", ],
-  answer: "red",
+ {question: ["1. Whats your favorite color"],
 
+  options: 
+  ["red", 
+  "blue",
+  "green"],
 
-  question: "2. Whats your favorite color",
-  options: ["red", "blue", "green", ],
-  answer: "blue",
-
-
-  question: "3. Whats your favorite color",
-  options: ["red", "blue", "green", ],
-  answer: "green",
-
-  question: "4. Whats your favorite color",
-  options: ["red", "blue", "green", ],
-  answer: "blue",
-
-  question: "5. Whats your favorite color",
-  options: ["red", "blue", "green", ],
-  answer: "red",
-
-}
+  answer: ["red"], },
 
 
+  {question: ["1. Whats your favorite color"],
+
+  options: 
+  ["red", 
+  "blue",
+  "green"],
+
+  answer: ["blue"],},
+
+
+  {question: ["1. Whats your favorite color"],
+
+  options: 
+  ["red", 
+  "blue",
+  "green"],
+
+  answer: ["green"],},
+
+  {question: ["1. Whats your favorite color"],
+
+  options: 
+  ["red", 
+  "blue",
+  "green"],
+
+  answer: ["blue"],},
+
+
+
+  {question: ["1. Whats your favorite color"],
+
+  options: 
+  ["red", 
+  "blue",
+  "green"],
+
+
+  answer: ["red"],},
+
+]
+
+console.log(quizQuestions)
 
 
 
@@ -96,7 +123,7 @@ function startQuiz() {
 
   console.log (currentQuestion)
 
-  questionEl.textContent = currentQuestion.question;
+  questionEl.innerHTML = currentQuestion.question;
 
   
 
@@ -105,7 +132,7 @@ function startQuiz() {
 
   for ( var i = 0; i < currentQuestion.options.length; i++) {
 
-    questionEl.innerHTML = currentQuestion.question;
+    // questionEl.innerHTML = currentQuestion.question;
 
     buttonOptions.innerHTML = currentQuestion.options[i]
 
@@ -114,7 +141,7 @@ function startQuiz() {
 
     // var option = document.createElement("button");
     // option.getElementById("btn").innerHTML = " ";
-    // document.buttonEl.appendChild(option);
+    // document.buttonEl.appendChild(questionEl);
 
     // var option = document.createElement("button");
     // option.getElementById("btn").innerHTML = " ";
