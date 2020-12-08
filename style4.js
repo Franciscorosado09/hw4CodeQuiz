@@ -1,4 +1,7 @@
 //main document variables
+var highScoresContainerEl = document.getElementsByClassName("highScoresContainer");
+
+// highScoresContainerEl.style.visibility = "hidden";
 
 var highScoresEl = document.getElementById("highscores");
 var buttonStart = document.querySelector("#btnStart");
@@ -13,14 +16,22 @@ var option = "";
 
 console.log (buttonOptions);
 
+
+
+
+
+
+
+
+
 //time variables
 
-var countdown = 100;
+var countdown = 30;
 var countdownInterval;
 
 
 
-questionEl.innerHTML = "This quiz will ask Coding questions as soon as you press the button. Once you do a timer and question will appear. If you get the answer right you will be presented the next question but get it wrong and time will be deducted from your clock. The game is over when you finish the quiz or timer gets to 0. Good luck on getting the High Score!";
+questionEl.innerHTML = "This quiz will ask Coding questions as soon as you press the button. Once you do a timer and question will appear. If you get the answer right you will be presented the next question with bonus time but get it wrong and time will be deducted from your clock. The game is over when you finish the quiz or timer gets to 0. Good luck on getting the High Score!";
 
 
 //Questions to plug in//
@@ -89,7 +100,7 @@ console.log(quizQuestions)
 
 function setTime() {
 
-  var countdown = 30;
+
 
   var countdownInterval = setInterval(function () {
     countdown--;
@@ -97,6 +108,7 @@ function setTime() {
 
     if (countdown === 0) {
       clearInterval(countdownInterval);
+      //end quiz
 
     }
 
@@ -108,21 +120,28 @@ function setTime() {
 console.log(setTime);
 
 function timeDeduction(){
-    countdown= countdown - 5;
+    countdown -= 5;
 
 };
 
 console.log (timeDeduction)
 
 function timeBonus(){
-    countdown= countdown + 5;
+    countdown += 5;
 
 };
 
 console.log (timeBonus)
 
+function stopCountdown (){
+    clearInterval(countdownInterval);
+    endQuiz ();
+
+}
 
 
+
+//Code Quiz Functions
 
 var questionNumber = 0;
 var userScore = 0;
@@ -160,13 +179,10 @@ function codeQuiz() {
       window.option
 
 
-    //   correctAnswer = quizQuestions[questionNumber].answer;
-      
-    //   console.log(correctAnswer)
+   
   
       
     }
-    //  Create an IF ELSE statement if USER chooses correct answer 5 seconds added if choose another then minus 5 seconds
   
   };
   
@@ -195,23 +211,18 @@ buttonOptions.addEventListener("click", function(e){
 
     var userChoice = element.textContent
 
-    // buttonOptions.value = text
-
-
-    // var userChoice = $("btnOptions").val(); 
-    
-    
-    // console.log(element.value);
     
 
     console.log (userChoice);
     
-    if (userChoice === quizQuestions[questionNumber].answer){
+    if (userChoice == quizQuestions[questionNumber].answer){
         userScore++; 
         console.log (userScore);
-        // timeBonus();
+        timeBonus();
 
-        countdown= countdown + 5;
+        
+        // countdown +=5;
+        console.log(countdown)
 
 
 
@@ -223,27 +234,34 @@ buttonOptions.addEventListener("click", function(e){
             codeQuiz();
         } else {
 
-            // create End function
+           endQuiz();
+           
         }
 
     }
     else{
 
-    if (element.matches("button")){
+    if (userChoice != quizQuestions[questionNumber].answer){
         if (userScore > 0){
             --userScore;
         }
         console.log(userScore);
-        // timeDeduction();
+        timeDeduction();
+        
 
-        countdown= countdown + 5
+        console.log(countdown)
+
 
         questionNumber++;
 
         if (questionNumber < 5){
             codeQuiz();
         } else{
-            //end function
+            endQuiz ();
+            stopCountdown ();
+           
+        
+            countdown.style.visibility = "hidden";
         }
 
     }
@@ -251,3 +269,19 @@ buttonOptions.addEventListener("click", function(e){
     }
 });
   
+function endQuiz() {
+    countdownEl.style.visibility = "hidden"
+    alert( "You scored" +  (parseInt(userScore) + parseInt (countdown)));
+
+
+
+
+
+
+
+
+
+
+
+
+}

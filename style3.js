@@ -242,4 +242,15 @@ buttonOptions.addEventListener("click", function(e){
     
     }
 });
-  
+// <!-- <form action="action_page.php">
+// <div class="highScoresContainer">
+//   <h1>Highscores</h1>
+//   <p>Please fill in intials</p>
+//   <hr>
+
+//   <input type="text" placeholder="Enter Initials" name="email" id="email" required>
+//   <button type="submit" class="registerbtn">submit</button>
+// </div>
+
+
+// </form> -->
