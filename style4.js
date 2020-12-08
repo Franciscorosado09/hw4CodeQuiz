@@ -8,6 +8,8 @@ var countdownEl = document.querySelector("#timer");
 
 
 var buttonOptions = document.getElementById("btnOptions");
+buttonOptions.style.visibility = "hidden";
+var option = "";
 
 console.log (buttonOptions);
 
@@ -43,7 +45,7 @@ var quizQuestions = [
   "body section",
   "head section"],
 
-  answer: "The <body> section",},
+  answer: "body section",},
 
 
   {question: "3. How do you write 'Hello World' in an alert box?",
@@ -87,7 +89,7 @@ console.log(quizQuestions)
 
 function setTime() {
 
-  var countdown = 100;
+  var countdown = 30;
 
   var countdownInterval = setInterval(function () {
     countdown--;
@@ -106,14 +108,14 @@ function setTime() {
 console.log(setTime);
 
 function timeDeduction(){
-    countdown-=30;
+    countdown= countdown - 5;
 
 };
 
 console.log (timeDeduction)
 
 function timeBonus(){
-    countdown+=10;
+    countdown= countdown + 5;
 
 };
 
@@ -155,68 +157,14 @@ function codeQuiz() {
   
       console.log (option)
 
-      correctAnswer = quizQuestions[questionNumber].answer;
-      
-      console.log(correctAnswer)
-  
-    buttonOptions.addEventListener("click", function(e){
-      
+      window.option
 
-        var element = e.target;
+
+    //   correctAnswer = quizQuestions[questionNumber].answer;
       
-         console.log (element)
-     
-         var userChoice = option.textContent
-     
-        //  var userChoice = buttonOptions.value
-     
-     
-         // var userChoice = $("btnOptions").val(); 
-         
-         
-        //  var userChoice= console.log(element.value);
-         
-     
-         console.log (userChoice);
-         
-     
-         if (element.matches ("button") === true && userChoice === correctAnswer){
-             ++userScore;
-             console.log (userScore);
-             timeBonus();
-     
-     
-             questionNumber++;
-     
-             if (questionNumber < 5) {
-                 codeQuiz();
-             } else {
-     
-                 // create End function
-             }
-     
-         }
-         else{
-     
-         if (element.matches("button")){
-             if (userScore > 0){
-                 --userScore;
-             }
-             console.log(userScore);
-             timeDeduction();
-             questionNumber++;
-     
-             if (questionNumber < 5){
-                 codeQuiz();
-             } else{
-                 //end function
-             }
-     
-         }
-         
-         }
-     });
-       
+    //   console.log(correctAnswer)
+  
+      
     }
     //  Create an IF ELSE statement if USER chooses correct answer 5 seconds added if choose another then minus 5 seconds
   
@@ -227,6 +175,7 @@ function codeQuiz() {
     
     
     buttonStart.style.visibility = "hidden";
+    buttonOptions.style.visibility = "visible";
   
    
     setTime();
@@ -237,62 +186,68 @@ function codeQuiz() {
   
 
 
-
-//   buttonOptions.addEventListener("click", function(e){
+buttonOptions.addEventListener("click", function(e){
       
 
-//    var element = e.target;
+   var element = e.target;
  
-//     console.log (element)
+    console.log (element)
 
-//     var userChoice = option.value
+    var userChoice = element.textContent
 
-//     // buttonOptions.value = text
+    // buttonOptions.value = text
 
 
-//     // var userChoice = $("btnOptions").val(); 
+    // var userChoice = $("btnOptions").val(); 
     
     
-//     // console.log(element.value);
+    // console.log(element.value);
     
 
-//     console.log (userChoice);
+    console.log (userChoice);
     
+    if (userChoice === quizQuestions[questionNumber].answer){
+        userScore++; 
+        console.log (userScore);
+        // timeBonus();
 
-//     if (element.matches ("button") === true && userChoice === correctAnswer){
-//         ++userScore;
-//         console.log (userScore);
-//         timeBonus();
+        countdown= countdown + 5;
 
 
-//         questionNumber++;
 
-//         if (questionNumber < 5) {
-//             codeQuiz();
-//         } else {
 
-//             // create End function
-//         }
 
-//     }
-//     else{
+        questionNumber++;
 
-//     if (element.matches("button")){
-//         if (userScore > 0){
-//             --userScore;
-//         }
-//         console.log(userScore);
-//         timeDeduction();
-//         questionNumber++;
+        if (questionNumber < 5) {
+            codeQuiz();
+        } else {
 
-//         if (questionNumber < 5){
-//             codeQuiz();
-//         } else{
-//             //end function
-//         }
+            // create End function
+        }
 
-//     }
+    }
+    else{
+
+    if (element.matches("button")){
+        if (userScore > 0){
+            --userScore;
+        }
+        console.log(userScore);
+        // timeDeduction();
+
+        countdown= countdown + 5
+
+        questionNumber++;
+
+        if (questionNumber < 5){
+            codeQuiz();
+        } else{
+            //end function
+        }
+
+    }
     
-//     }
-// });
+    }
+});
   

@@ -186,15 +186,14 @@ function codeQuiz() {
   
 
 
-
-  buttonOptions.addEventListener("click", function(e){
+buttonOptions.addEventListener("click", function(e){
       
 
    var element = e.target;
  
     console.log (element)
 
-    var userChoice = option.textContent
+    var userChoice = element.textContent
 
     // buttonOptions.value = text
 
@@ -207,7 +206,6 @@ function codeQuiz() {
 
     console.log (userChoice);
     
-
     if (element.matches ("button") === true && userChoice === correctAnswer){
         ++userScore;
         console.log (userScore);
