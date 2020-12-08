@@ -98,6 +98,9 @@ console.log(quizQuestions)
 
 //Time functions
 
+
+
+
 function setTime() {
 
 
@@ -107,8 +110,8 @@ function setTime() {
     countdownEl.textContent = countdown;
 
     if (countdown === 0) {
-      clearInterval(countdownInterval);
-      //end quiz
+        endQuiz()
+      countdownInterval = ""
 
     }
 
@@ -134,7 +137,7 @@ function timeBonus(){
 console.log (timeBonus)
 
 function stopCountdown (){
-    clearInterval(countdownInterval);
+    countdownInterval= ""
     endQuiz ();
 
 }
