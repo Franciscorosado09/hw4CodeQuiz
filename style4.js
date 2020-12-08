@@ -19,7 +19,11 @@ console.log (buttonOptions);
 
 
 
+var intialsbox = document.getElementById("inputBox");
+var scoresEl =document.getElementById("scores");
 
+intialsbox.style.visibility = "hidden";
+scoresEl.style.visibility = "hidden";
 
 
 
@@ -31,7 +35,16 @@ var countdownInterval;
 
 
 
-questionEl.innerHTML = "This quiz will ask Coding questions as soon as you press the button. Once you do a timer and question will appear. If you get the answer right you will be presented the next question with bonus time but get it wrong and time will be deducted from your clock. The game is over when you finish the quiz or timer gets to 0. Good luck on getting the High Score!";
+questionEl.innerHTML = "This quiz will ask Coding questions as soon as you press the button. Once you do a timer and question will appear. If you get the answer right you will be presented the next question but get it wrong and time will be deducted from your clock. The game is over when you finish the quiz or timer gets to 0. If you finish in time you could be on the High Score board!";
+
+// scorebox
+function userInput () {
+    intialsbox.value;
+    scoresEl.innerHTML = initialsbox;
+  }
+
+
+
 
 
 //Questions to plug in//
@@ -137,7 +150,7 @@ function timeBonus(){
 console.log (timeBonus)
 
 function stopCountdown (){
-    countdownInterval= ""
+    
     endQuiz ();
 
 }
@@ -273,10 +286,43 @@ buttonOptions.addEventListener("click", function(e){
 });
   
 function endQuiz() {
+
     countdownEl.style.visibility = "hidden"
-    alert( "You scored" +  (parseInt(userScore) + parseInt (countdown)));
+    
+    buttonOptions.innerHTML = "";
 
 
+    intialsbox.style.visibility = "visible";
+    scoresEl.style.visibility = "visible";
+
+    questionEl.innerHTML = ( "You score is " +  (parseInt(userScore) + parseInt (countdown)));
+
+    function userInput () {
+        intialsbox.value;
+        scoresEl.innerHTML = initialsbox;
+      }
+
+
+
+    var submit = document.createElement("button");
+    submit.innerHTML = ("submit");
+    buttonOptions.appendChild(submit)
+
+
+
+    submit.addEventListener("click", function () {
+        function inputIntials (){
+        intialsbox.value;
+        scoresEl.innerHTML = initialsbox + (questionEl.innerHTML);};
+
+
+        buttonOptions.innerHTML = "";
+
+
+
+
+    });
+   
 
 
 
