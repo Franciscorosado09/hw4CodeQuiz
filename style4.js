@@ -112,7 +112,12 @@ function timeDeduction(){
 
 console.log (timeDeduction)
 
+function timeBonus(){
+    countdown+=10;
 
+};
+
+console.log (timeBonus)
 
 
 
@@ -150,11 +155,68 @@ function codeQuiz() {
   
       console.log (option)
 
-    //   correctAnswer = quizQuestions[questionNumber].answer;
+      correctAnswer = quizQuestions[questionNumber].answer;
       
-    //   console.log(correctAnswer)
+      console.log(correctAnswer)
   
+    buttonOptions.addEventListener("click", function(e){
       
+
+        var element = e.target;
+      
+         console.log (element)
+     
+         var userChoice = option.textContent
+     
+        //  var userChoice = buttonOptions.value
+     
+     
+         // var userChoice = $("btnOptions").val(); 
+         
+         
+        //  var userChoice= console.log(element.value);
+         
+     
+         console.log (userChoice);
+         
+     
+         if (element.matches ("button") === true && userChoice === correctAnswer){
+             ++userScore;
+             console.log (userScore);
+             timeBonus();
+     
+     
+             questionNumber++;
+     
+             if (questionNumber < 5) {
+                 codeQuiz();
+             } else {
+     
+                 // create End function
+             }
+     
+         }
+         else{
+     
+         if (element.matches("button")){
+             if (userScore > 0){
+                 --userScore;
+             }
+             console.log(userScore);
+             timeDeduction();
+             questionNumber++;
+     
+             if (questionNumber < 5){
+                 codeQuiz();
+             } else{
+                 //end function
+             }
+     
+         }
+         
+         }
+     });
+       
     }
     //  Create an IF ELSE statement if USER chooses correct answer 5 seconds added if choose another then minus 5 seconds
   
@@ -176,51 +238,61 @@ function codeQuiz() {
 
 
 
-  buttonOptions.addEventListener("click", function(e){
+//   buttonOptions.addEventListener("click", function(e){
       
 
-   var element = e.target;
+//    var element = e.target;
  
-    console.log (element)
+//     console.log (element)
 
-    var userChoice = e.target.innerHTML;
+//     var userChoice = option.value
 
-    console.log (userChoice);
+//     // buttonOptions.value = text
+
+
+//     // var userChoice = $("btnOptions").val(); 
+    
+    
+//     // console.log(element.value);
     
 
-    if (element.matches ("button") === true && e.innerHTML === correctAnswer){
-        ++userScore;
-        console.log (userScore);
-
-
-        questionNumber++;
-
-        if (questionNumber < 5) {
-            codeQuiz();
-        } else {
-
-            // create End function
-        }
-
-    }
-    else{
-
-    if (element.matches("button")){
-        if (userScore > 0){
-            --userScore;
-        }
-        console.log(userScore);
-        timeDeduction();
-        questionNumber++;
-
-        if (questionNumber < 5){
-            codeQuiz();
-        } else{
-            //end function
-        }
-
-    }
+//     console.log (userChoice);
     
-    }
-});
+
+//     if (element.matches ("button") === true && userChoice === correctAnswer){
+//         ++userScore;
+//         console.log (userScore);
+//         timeBonus();
+
+
+//         questionNumber++;
+
+//         if (questionNumber < 5) {
+//             codeQuiz();
+//         } else {
+
+//             // create End function
+//         }
+
+//     }
+//     else{
+
+//     if (element.matches("button")){
+//         if (userScore > 0){
+//             --userScore;
+//         }
+//         console.log(userScore);
+//         timeDeduction();
+//         questionNumber++;
+
+//         if (questionNumber < 5){
+//             codeQuiz();
+//         } else{
+//             //end function
+//         }
+
+//     }
+    
+//     }
+// });
   

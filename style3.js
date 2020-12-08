@@ -8,6 +8,8 @@ var countdownEl = document.querySelector("#timer");
 
 
 var buttonOptions = document.getElementById("btnOptions");
+buttonOptions.style.visibility = "hidden";
+var option = "";
 
 console.log (buttonOptions);
 
@@ -26,55 +28,55 @@ questionEl.innerHTML = "This quiz will ask Coding questions as soon as you press
 
 var quizQuestions = [
 
- {question: "1. Whats your favorite color",
+ {question: "1. Inside which HTML element do we put the JavaScript?",
 
   options: 
-  ["red", 
-  "blue",
-  "green"],
+  ["js", 
+  "scripting",
+  "script"],
 
-  answer: "red", },
-
-
-  {question: "2. qq",
-
-  options: 
-  ["red", 
-  "blue",
-  "green"],
-
-  answer: "blue",},
+  answer: "script", },
 
 
-  {question: "3. qq",
+  {question: "2. Where is the correct place to insert a JavaScript?",
 
   options: 
-  ["red", 
-  "blue",
-  "green"],
+  ["head & body section", 
+  "body section",
+  "head section"],
 
-  answer: "green",},
-
-  {question: "4. qq",
-
-  options: 
-  ["red", 
-  "blue",
-  "green"],
-
-  answer: "blue",},
+  answer: "The <body> section",},
 
 
-
-  {question: "5. QQ",
+  {question: "3. How do you write 'Hello World' in an alert box?",
 
   options: 
-  ["red", 
-  "blue",
-  "green"],
+  ["alert('Hello World')", 
+  "alertBox('Hello World')",
+  "msg('Hello World')"],
+
+  answer: "alert('Hello World')",},
+
+  {question: "4. How can you add a comment in a JavaScript?",
+
+  options: 
+  ["Magic", 
+  "Sunshine",
+  "//This is a comment"],
+
+  answer: "//This is a comment",},
 
 
-  answer: "red",},
+
+  {question: "5. Which event occurs when the user clicks on an HTML element?",
+
+  options: 
+  ["onmouseclick", 
+  "onclick",
+  "onmouseover"],
+
+
+  answer: "onclick",},
 
 ]
 
@@ -106,13 +108,18 @@ function setTime() {
 console.log(setTime);
 
 function timeDeduction(){
-    countdown-=30
+    countdown-=30;
 
 };
 
 console.log (timeDeduction)
 
+function timeBonus(){
+    countdown+=10;
 
+};
+
+console.log (timeBonus)
 
 
 
@@ -129,11 +136,16 @@ function codeQuiz() {
     questionEl.innerHTML = quizQuestions[questionNumber].question;
   
     
-  
-  
+    buttonOptions.innerHTML = "";
+
+    correctAnswer = quizQuestions[questionNumber].answer;
+      
+    console.log(correctAnswer)
   
   
     for ( var i = 0; i < quizQuestions[questionNumber].options.length; i++) {
+        
+        
   
       
   
@@ -145,9 +157,12 @@ function codeQuiz() {
   
       console.log (option)
 
-      correctAnswer = quizQuestions[questionNumber].correct;
+      window.option
+
+
+    //   correctAnswer = quizQuestions[questionNumber].answer;
       
-      console.log(quizQuestions[questionNumber])
+    //   console.log(correctAnswer)
   
       
     }
@@ -160,6 +175,7 @@ function codeQuiz() {
     
     
     buttonStart.style.visibility = "hidden";
+    buttonOptions.style.visibility = "visible";
   
    
     setTime();
@@ -174,18 +190,28 @@ function codeQuiz() {
   buttonOptions.addEventListener("click", function(e){
       
 
-    // var element = e.target;
+   var element = e.target;
+ 
+    console.log (element)
 
-    // console.log (element)
+    var userChoice = option.textContent
 
-    var userChoice = e.target.innerHTML;
+    // buttonOptions.value = text
+
+
+    // var userChoice = $("btnOptions").val(); 
+    
+    
+    // console.log(element.value);
+    
 
     console.log (userChoice);
+    
 
-
-    if (element.matches ("button") === true && e.innerHTML === correctAnswer){
+    if (element.matches ("button") === true && userChoice === correctAnswer){
         ++userScore;
         console.log (userScore);
+        timeBonus();
 
 
         questionNumber++;

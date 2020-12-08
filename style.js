@@ -159,7 +159,7 @@ function startQuiz() {
     // var option = document.createElement("button");
     // option.getElementById("btn").innerHTML = " ";
     // document.buttonEl.appendChild(optionA);
-    
+    ?
 
   }
   //  Create an IF ELSE statement if USER chooses correct answer 5 seconds added if choose another then minus 5 seconds
@@ -170,7 +170,7 @@ function startQuiz() {
 buttonStart.addEventListener("click", function () {
   
   
-  buttonStart.style.visibility = "hidden";
+  buttonStart.style.visibility = "btnOptionshidden";
 
   // buttonOptions.forEach(function (button){
   //   button.style.visibility = "visible"
