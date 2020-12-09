@@ -303,10 +303,7 @@ function endQuiz() {
 
     questionEl.innerHTML = ( " Your score is " +  (parseInt(userScore) + parseInt (countdown)));
 
-    // function userInput () {
-    //     intialsbox.value = textContent
-    //     scoresEl.innerHTML = initialsbox;
-    //   }
+    
 
 
 
@@ -314,8 +311,8 @@ function endQuiz() {
     submit.innerHTML = ("submit");
     buttonOptions.appendChild(submit)
 
-    // intialsbox.value;
-    // scoresEl.innerHTML = initialsbox + (questionEl.innerHTML);
+    
+    
 
     var inputData = intialsbox.value.trim();
     if (inputData === "") {
@@ -329,7 +326,7 @@ function endQuiz() {
 
     submit.addEventListener("click", function () {
 
-      // var inputData = intialsbox.value;
+      
       scoresEl.innerHTML.appendChild(scoresEl)
 
         // intialsbox.value;
@@ -349,6 +346,8 @@ function endQuiz() {
    
   };
 
+
+
 // local storage
 
 
@@ -365,8 +364,15 @@ function init() {
   // If todos were retrieved from localStorage, update the todos array to it
   if (storedHighscores !== null) {
     scoresEl.innerHTML = storedHighscores;
-  }
+  };
+  var inputData = intialsbox.value.trim();
+    if (inputData === "") {
+      return;
+    }
 
+
+    scoresEl.innerHTML = inputData + (questionEl.innerHTML);
+ 
 
 
 };
