@@ -301,7 +301,7 @@ function endQuiz() {
     intialsbox.style.visibility = "visible";
     scoresEl.style.visibility = "visible";
 
-    questionEl.innerHTML = ( "You score is " +  (parseInt(userScore) + parseInt (countdown)));
+    questionEl.innerHTML = ( " Your score is " +  (parseInt(userScore) + parseInt (countdown)));
 
     // function userInput () {
     //     intialsbox.value = textContent
@@ -338,19 +338,35 @@ function endQuiz() {
 
         buttonOptions.innerHTML = "";
 
+        stor ();
+
 
 
 
     });
+
+
    
+  };
+
+// local storage
 
 
-
-
-
-
-
-
-
-
+function storeHighscores() {
+  // Stringify and set "todos" key in localStorage to todos array
+  localStorage.setItem("high scores", JSON.stringify(scoresEl.innerHTML));
 }
+
+function init() {
+  // Stored from localStorage
+  // Parsing the JSON string to an object
+  var storedHighscores = JSON.parse(localStorage.getItem(scoresEl.innerHTML));
+
+  // If todos were retrieved from localStorage, update the todos array to it
+  if (storedHighscores !== null) {
+    scoresEl.innerHTML = storedHighscores;
+  }
+
+
+
+};
