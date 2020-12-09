@@ -21,6 +21,8 @@ console.log (buttonOptions);
 
 var intialsbox = document.getElementById("inputBox");
 var scoresEl =document.getElementById("scores");
+scoresEl.innerHTML = " "
+var score
 
 intialsbox.style.visibility = "hidden";
 scoresEl.style.visibility = "hidden";
@@ -106,7 +108,7 @@ var quizQuestions = [
 
 console.log(quizQuestions)
 
-
+console.log (quizQuestions.answer)
 
 
 //Time functions
@@ -227,16 +229,16 @@ buttonOptions.addEventListener("click", function(e){
 
     var userChoice = element.textContent
 
-    
+    // var correctAnswer = quizQuestions[questionNumber].answer
 
     console.log (userChoice);
     
-    if (userChoice == quizQuestions[questionNumber].answer){
+    if (userChoice === correctAnswer){
         userScore++; 
         console.log (userScore);
         timeBonus();
 
-        
+        console.log (correctAnswer)
         // countdown +=5;
         console.log(countdown)
 
@@ -244,9 +246,10 @@ buttonOptions.addEventListener("click", function(e){
 
 
 
-        questionNumber++;
+        //questionNumber++;
 
-        if (questionNumber < 5) {
+        if (questionNumber < 4) {
+           questionNumber++;
             codeQuiz();
         } else {
 
@@ -268,9 +271,10 @@ buttonOptions.addEventListener("click", function(e){
         console.log(countdown)
 
 
-        questionNumber++;
+        // questionNumber++;
 
-        if (questionNumber < 5){
+        if (questionNumber < 4){
+            questionNumber++;
             codeQuiz();
         } else{
             endQuiz ();
@@ -284,6 +288,8 @@ buttonOptions.addEventListener("click", function(e){
     
     }
 });
+
+var highscoreUsers = {}; 
   
 function endQuiz() {
 
@@ -297,10 +303,10 @@ function endQuiz() {
 
     questionEl.innerHTML = ( "You score is " +  (parseInt(userScore) + parseInt (countdown)));
 
-    function userInput () {
-        intialsbox.value;
-        scoresEl.innerHTML = initialsbox;
-      }
+    // function userInput () {
+    //     intialsbox.value = textContent
+    //     scoresEl.innerHTML = initialsbox;
+    //   }
 
 
 
@@ -308,15 +314,26 @@ function endQuiz() {
     submit.innerHTML = ("submit");
     buttonOptions.appendChild(submit)
 
-    intialsbox.value;
-    scoresEl.innerHTML = initialsbox + (questionEl.innerHTML);
+    // intialsbox.value;
+    // scoresEl.innerHTML = initialsbox + (questionEl.innerHTML);
+
+    var inputData = intialsbox.value.trim();
+    if (inputData === "") {
+      return;
+    }
 
 
+    scoresEl.innerHTML = inputData + (questionEl.innerHTML);
+
+    scoresEl.innerHTML.appendChild(scoresEl)
 
     submit.addEventListener("click", function () {
 
+      // var inputData = intialsbox.value;
+      scoresEl.innerHTML.appendChild(scoresEl)
+
         // intialsbox.value;
-        // scoresEl.innerHTML = initialsbox + (questionEl.innerHTML);
+        // scoresEl.innerHTML = inputData + (questionEl.innerHTML);
 
 
         buttonOptions.innerHTML = "";
