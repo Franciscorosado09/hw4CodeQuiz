@@ -308,12 +308,15 @@ function endQuiz() {
     submit.innerHTML = ("submit");
     buttonOptions.appendChild(submit)
 
+    intialsbox.value;
+    scoresEl.innerHTML = initialsbox + (questionEl.innerHTML);
+
 
 
     submit.addEventListener("click", function () {
-        function inputIntials (){
-        intialsbox.value;
-        scoresEl.innerHTML = initialsbox + (questionEl.innerHTML);};
+
+        // intialsbox.value;
+        // scoresEl.innerHTML = initialsbox + (questionEl.innerHTML);
 
 
         buttonOptions.innerHTML = "";
