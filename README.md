@@ -36,6 +36,7 @@ THEN I can save my initials and score
 ## Sources in Development
 
     * All examples was provided by GW. 
+    * css media background-image: url('https://media4.giphy.com/media/1oF1KAEYvmXBMo6uTS/giphy.gif');
     * BCS provided context when roadblock happens
     * Quiz questions provided by W3 schools quiz questions : https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS
     * GW repo
@@ -50,6 +51,6 @@ THEN I can save my initials and score
  For clarification feel free to reach out to Francisco Rosado, Franciscorosado09@.gmail.com'
 
 
-planned link
 
-css https://codepen.io/kootoopas/pen/reyqg
+
+
